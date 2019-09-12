@@ -931,6 +931,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1208062376}
+  - component: {fileID: 1208062378}
+  - component: {fileID: 1208062377}
+  - component: {fileID: 1208062380}
+  - component: {fileID: 1208062379}
   m_Layer: 0
   m_Name: TrafficLight
   m_TagString: Untagged
@@ -955,6 +959,114 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1208062377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208062375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27b962ddfa21461eb78fac1cb2f955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1208062378}
+  m_Parent: {fileID: 0}
+  m_StateName: StateMachine
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 0, y: 0}
+  m_Transitions: []
+  m_CachedInstanceID: 13488
+  m_Description: 
+  m_EnabledState: {fileID: 0}
+  m_LastEnabledState: {fileID: 0}
+  m_StartState: {fileID: 1208062380}
+  m_AnyState: {fileID: 0}
+  m_ConcurrentState: {fileID: 0}
+--- !u!114 &1208062378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208062375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FloatVars: []
+  m_IntVars: []
+  m_BoolVars: []
+  m_StringVars: []
+  m_Vector3Vars: []
+  m_RectVars: []
+  m_ColorVars: []
+  m_QuaternionVars: []
+  m_GameObjectVars: []
+  m_TextureVars: []
+  m_MaterialVars: []
+  m_ObjectVars: []
+  m_DynamicLists: []
+  m_FsmEvents: []
+  m_ConcreteFsmEvents:
+  - m_ID: 670824356
+    m_Name: TurningGreen
+    m_Blackboard: {fileID: 1208062378}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 492538595
+    m_Name: TurningRed
+    m_Blackboard: {fileID: 1208062378}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  m_Namespace: 
+--- !u!114 &1208062379
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208062375}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b310834660b8ed44db5472e2fa58b3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1208062378}
+  m_Parent: {fileID: 1208062377}
+  m_StateName: GreenLight
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 480, y: 150}
+  m_Transitions:
+  - m_Destination: {fileID: 1208062380}
+    m_EventID: 492538595
+  m_CachedInstanceID: -2168
+--- !u!114 &1208062380
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208062375}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aaa345ce78f2e4f9a04b83d6f82f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1208062378}
+  m_Parent: {fileID: 1208062377}
+  m_StateName: RedLight
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 220, y: 150}
+  m_Transitions:
+  - m_Destination: {fileID: 1208062379}
+    m_EventID: 670824356
+  m_CachedInstanceID: -2108
 --- !u!1 &1228674213
 GameObject:
   m_ObjectHideFlags: 0
