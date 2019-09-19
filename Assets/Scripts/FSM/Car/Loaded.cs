@@ -7,15 +7,18 @@ public class Loaded : StateBehaviour
 {
     public Transform destination;
     public Transform SpawnPoint;
+    public Transform DropoffPoint;
+
 
     public float speed;
+    public float positionThreshold;
     public GameObject timeMaster;
 
     void OnEnable () {
 
         speed = timeMaster.GetComponent<Timers>().carSpeed;
-
-	}
+        positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
+    }
  
 	// Called when the state is disabled
 	void OnDisable () {
@@ -25,20 +28,35 @@ public class Loaded : StateBehaviour
 	// Update is called once per frame
 	void Update () {
         Move();
+        CheckDestination(destination);
     }
-    private void OnCollisonEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit");
-
-        SendEvent("Blocked");
+        if (collision.gameObject.tag == "Red")
+        {
+            Debug.Log("Hit");
+            SendEvent("Blocked");
+        }
 
     }
     private void Move()
     {
+        Vector3 dir = Vector3.Normalize(destination.position - transform.position);
+        // Vector3 slerpDir = Vector3.Slerp(dir, transform.position,0.2f);
         speed = timeMaster.GetComponent<Timers>().carSpeed;
-        Vector3 dir = new Vector3(1f, 0f, 0f);
+
         transform.position += dir * Time.deltaTime * speed;
 
+    }
+
+    private void CheckDestination(Transform t)
+    {
+        if (Vector3.Distance( transform.position,t.position) <= positionThreshold)
+        {
+
+            SendEvent("Despawn");
+
+        }
     }
 }
 

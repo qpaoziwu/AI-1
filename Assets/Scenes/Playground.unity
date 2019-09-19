@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fd620473e35c6b645a75687f7f4b9ab8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fd620473e35c6b645a75687f7f4b9ab8,
         type: 3}
@@ -405,14 +405,18 @@ MonoBehaviour:
   m_StateName: Loaded
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 480, y: 110}
+  m_Position: {x: 420, y: 110}
   m_Transitions:
   - m_Destination: {fileID: 412741725}
     m_EventID: 907047625
+  - m_Destination: {fileID: 412741727}
+    m_EventID: 1421076565
   m_CachedInstanceID: -3924
-  destination: {fileID: 827399681}
+  destination: {fileID: 438433553}
   SpawnPoint: {fileID: 1807489327}
+  DropoffPoint: {fileID: 0}
   speed: 0
+  positionThreshold: 0
   timeMaster: {fileID: 2138570794}
 --- !u!114 &412741722
 MonoBehaviour:
@@ -487,6 +491,16 @@ MonoBehaviour:
     m_Blackboard: {fileID: 412741723}
     m_IsConstant: 0
     m_IsSystem: 0
+  - m_ID: 1456161131
+    m_Name: Respawn
+    m_Blackboard: {fileID: 412741723}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 1421076565
+    m_Name: Despawn
+    m_Blackboard: {fileID: 412741723}
+    m_IsConstant: 0
+    m_IsSystem: 0
   m_Namespace: 
 --- !u!114 &412741725
 MonoBehaviour:
@@ -530,7 +544,7 @@ MonoBehaviour:
   m_StateName: Safe
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 160, y: 190}
+  m_Position: {x: 170, y: 160}
   m_Transitions:
   - m_Destination: {fileID: 412741728}
     m_EventID: 4346931
@@ -538,9 +552,34 @@ MonoBehaviour:
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
-  m_StartState: {fileID: 412741725}
+  m_StartState: {fileID: 412741721}
   m_AnyState: {fileID: 0}
   m_ConcurrentState: {fileID: 0}
+--- !u!114 &412741727
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412741720}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bfc4db4732f8fc46a83cc50092d4ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 412741723}
+  m_Parent: {fileID: 412741726}
+  m_StateName: ReachedDestination
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 710, y: 120}
+  m_Transitions:
+  - m_Destination: {fileID: 412741721}
+    m_EventID: 1456161131
+  m_CachedInstanceID: -12794
+  timemaster: {fileID: 2138570794}
+  respawnPoint: {fileID: 1807489327}
+  timer: 0
 --- !u!114 &412741728
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -558,7 +597,7 @@ MonoBehaviour:
   m_StateName: Obstructed
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 480, y: 190}
+  m_Position: {x: 460, y: 160}
   m_Transitions:
   - m_Destination: {fileID: 412741726}
     m_EventID: 1894187651
@@ -637,7 +676,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fd620473e35c6b645a75687f7f4b9ab8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fd620473e35c6b645a75687f7f4b9ab8,
         type: 3}
@@ -1048,7 +1087,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fd620473e35c6b645a75687f7f4b9ab8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fd620473e35c6b645a75687f7f4b9ab8,
         type: 3}
@@ -1846,7 +1885,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 2.5, z: 3.06748}
-  m_Center: {x: -4.5, y: -4.25, z: -1.349926}
+  m_Center: {x: -4.5, y: -4.25, z: 1.16}
 --- !u!54 &1555397386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2053,7 +2092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1903925105
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2193,6 +2232,7 @@ MonoBehaviour:
   kid2PlayTime: 13
   kid3PlayTime: 13
   dayCycleTime: 5
+  carDespawnThreshold: 1
 --- !u!1001 &2497071133875076634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2213,7 +2253,7 @@ PrefabInstance:
     - target: {fileID: 8050089083953227941, guid: 40eaa8747153cd74893ab011507d6762,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 661833170481409009, guid: 40eaa8747153cd74893ab011507d6762,
         type: 3}

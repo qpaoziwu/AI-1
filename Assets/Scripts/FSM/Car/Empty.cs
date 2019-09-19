@@ -42,9 +42,9 @@ public class Empty : StateBehaviour
        // Vector3 slerpDir = Vector3.Slerp(dir, transform.position,0.2f);
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         
-        transform.position += dir * Time.deltaTime ;
-
+        transform.position += dir * Time.deltaTime * speed ;
     }
+
 }
 
 
