@@ -268,7 +268,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 13472
+  m_CachedInstanceID: 21706
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -411,10 +411,12 @@ MonoBehaviour:
     m_EventID: 907047625
   - m_Destination: {fileID: 412741727}
     m_EventID: 1421076565
-  m_CachedInstanceID: -3924
+  - m_Destination: {fileID: 0}
+    m_EventID: 4346931
+  m_CachedInstanceID: 21714
   destination: {fileID: 438433553}
   SpawnPoint: {fileID: 1807489327}
-  DropoffPoint: {fileID: 0}
+  DropoffPoint: {fileID: 827399681}
   speed: 0
   positionThreshold: 0
   timeMaster: {fileID: 2138570794}
@@ -437,11 +439,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 13482
+  m_CachedInstanceID: 21716
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
-  m_StartState: {fileID: 0}
+  m_StartState: {fileID: 412741726}
   m_AnyState: {fileID: 0}
   m_ConcurrentState: {fileID: 0}
 --- !u!114 &412741723
@@ -523,7 +525,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 412741721}
     m_EventID: 1562136105
-  m_CachedInstanceID: -3922
+  m_CachedInstanceID: 21720
   destination: {fileID: 827399681}
   speed: 0
   timeMaster: {fileID: 2138570794}
@@ -544,11 +546,11 @@ MonoBehaviour:
   m_StateName: Safe
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 170, y: 160}
+  m_Position: {x: 170, y: 150}
   m_Transitions:
   - m_Destination: {fileID: 412741728}
     m_EventID: 4346931
-  m_CachedInstanceID: -3374
+  m_CachedInstanceID: 21722
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -576,7 +578,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 412741721}
     m_EventID: 1456161131
-  m_CachedInstanceID: -12794
+  m_CachedInstanceID: 21724
   timemaster: {fileID: 2138570794}
   respawnPoint: {fileID: 1807489327}
   timer: 0
@@ -601,7 +603,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 412741726}
     m_EventID: 1894187651
-  m_CachedInstanceID: 13488
+  m_CachedInstanceID: 21726
 --- !u!65 &412741730
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1190,7 +1192,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 13536
+  m_CachedInstanceID: 21776
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1473,7 +1475,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 13564
+  m_CachedInstanceID: 21804
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1539,7 +1541,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1208062380}
     m_EventID: 492538595
-  m_CachedInstanceID: 13568
+  m_CachedInstanceID: 21808
   greenLight: {fileID: 705507993}
   timemaster: {fileID: 2138570794}
   timer: 2
@@ -1564,7 +1566,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1208062379}
     m_EventID: 670824356
-  m_CachedInstanceID: 13570
+  m_CachedInstanceID: 21810
   redLight: {fileID: 1555397382}
   timemaster: {fileID: 2138570794}
   timer: 3
