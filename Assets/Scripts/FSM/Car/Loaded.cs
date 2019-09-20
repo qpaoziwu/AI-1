@@ -5,11 +5,13 @@ using BehaviourMachine;
 
 public class Loaded : StateBehaviour
 {
+
     public Transform destination;
     public Transform SpawnPoint;
     public Transform DropoffPoint;
 
     public bool travelDirection;
+    public bool loaded;
     public Vector3 dir;
     public float speed;
     public float positionThreshold;
@@ -33,13 +35,15 @@ public class Loaded : StateBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Red")
+        if (collision.gameObject.CompareTag ("Red") || collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit");
             SendEvent("Blocked");
         }
 
     }
+
+
     public float TravelDir()
     {
         if (dir.x >= 0)
@@ -59,7 +63,14 @@ public class Loaded : StateBehaviour
         transform.rotation = Quaternion.LookRotation(lerpDir);
 
     }
+    public Transform NextDestination(Transform t)
+    {
+    Transform destination;
+    Transform SpawnPoint;
+    Transform DropoffPoint;
 
+        return transform;
+    }
     private void CheckDestination(Transform t)
     {
         if (Vector3.Distance(transform.position,t.position) <= positionThreshold)

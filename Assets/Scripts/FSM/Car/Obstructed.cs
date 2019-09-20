@@ -26,12 +26,24 @@ public class Obstructed : StateBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Green")
+        if (collision.gameObject.CompareTag ( "Green"))
         {
             Debug.Log("Cleared");
 
             SendEvent("Cleared");
         }
+    }
+    private IEnumerator OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            yield return new WaitForSeconds(1f);
+
+            Debug.Log("Cleared");
+
+            SendEvent("Cleared");
+        }
+
     }
 
 }
