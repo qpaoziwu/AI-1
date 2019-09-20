@@ -9,14 +9,27 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        speed = timeMaster.GetComponent<Timers>().carSpeed;
+        speed = timeMaster.GetComponent<Timers>().playerSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        speed = timeMaster.GetComponent<Timers>().carSpeed;
-        Vector3 dir = new Vector3(1f,0f,0f);
-        transform.position += dir*Time.deltaTime*speed;
+        MoveObjectWithRotation();
+    }
+
+    public void MoveObjectWithRotation()
+    {
+        speed = timeMaster.GetComponent<Timers>().playerSpeed;
+        Vector3 dir = new Vector3(1f * (Input.GetAxis("Horizontal")), 0f, 1f * (Input.GetAxis("Vertical")));
+        Vector3 dirRelativeToCamera = Camera.main.transform.TransformDirection(dir);
+        Vector3 newDir = new Vector3 (dirRelativeToCamera.x,0f , dirRelativeToCamera.z);
+        transform.position += newDir * Time.deltaTime * speed;
+
+        if (Input.GetAxis("Horizontal")!=0f|| (Input.GetAxis("Vertical")!=0f)) 
+        {
+            transform.rotation = Quaternion.LookRotation(newDir);
+
+        }
     }
 }

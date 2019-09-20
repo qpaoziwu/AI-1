@@ -8,6 +8,7 @@ public class Timers : MonoBehaviour
     public float greenLightTime;
     public float carSpawnTime;
     public float carSpeed;
+    public float playerSpeed;
     public float kid2PlayTime;
     public float kid3PlayTime;
     public float dayCycleTime;

@@ -268,7 +268,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 21706
+  m_CachedInstanceID: 21702
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -413,10 +413,12 @@ MonoBehaviour:
     m_EventID: 1421076565
   - m_Destination: {fileID: 0}
     m_EventID: 4346931
-  m_CachedInstanceID: 21714
+  m_CachedInstanceID: 21710
   destination: {fileID: 438433553}
   SpawnPoint: {fileID: 1807489327}
   DropoffPoint: {fileID: 827399681}
+  travelDirection: 0
+  dir: {x: 0, y: 0, z: 0}
   speed: 0
   positionThreshold: 0
   timeMaster: {fileID: 2138570794}
@@ -439,7 +441,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 21716
+  m_CachedInstanceID: 21712
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -525,7 +527,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 412741721}
     m_EventID: 1562136105
-  m_CachedInstanceID: 21720
+  m_CachedInstanceID: 21716
   destination: {fileID: 827399681}
   speed: 0
   timeMaster: {fileID: 2138570794}
@@ -550,7 +552,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 412741728}
     m_EventID: 4346931
-  m_CachedInstanceID: 21722
+  m_CachedInstanceID: 21718
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -578,7 +580,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 412741721}
     m_EventID: 1456161131
-  m_CachedInstanceID: 21724
+  m_CachedInstanceID: 21720
   timemaster: {fileID: 2138570794}
   respawnPoint: {fileID: 1807489327}
   timer: 0
@@ -603,7 +605,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 412741726}
     m_EventID: 1894187651
-  m_CachedInstanceID: 21726
+  m_CachedInstanceID: 21722
 --- !u!65 &412741730
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -762,6 +764,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4068373912626513877, guid: fd620473e35c6b645a75687f7f4b9ab8, type: 3}
+--- !u!114 &442399834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442399831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c69681caa0fe8468aa1dc24c223aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  timeMaster: {fileID: 2138570794}
 --- !u!54 &442399835
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -773,8 +789,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1192,7 +1208,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 21776
+  m_CachedInstanceID: 21772
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1475,7 +1491,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 21804
+  m_CachedInstanceID: 21800
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1541,7 +1557,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1208062380}
     m_EventID: 492538595
-  m_CachedInstanceID: 21808
+  m_CachedInstanceID: 21804
   greenLight: {fileID: 705507993}
   timemaster: {fileID: 2138570794}
   timer: 2
@@ -1566,7 +1582,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1208062379}
     m_EventID: 670824356
-  m_CachedInstanceID: 21810
+  m_CachedInstanceID: 21806
   redLight: {fileID: 1555397382}
   timemaster: {fileID: 2138570794}
   timer: 3
@@ -2229,8 +2245,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redLightTime: 3
   greenLightTime: 2
-  carSpawnTime: 15
-  carSpeed: 5
+  carSpawnTime: 1
+  carSpeed: 15
+  playerSpeed: 10
   kid2PlayTime: 13
   kid3PlayTime: 13
   dayCycleTime: 5
