@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
 
-public class Loaded : StateBehaviour
+public class Emptied : StateBehaviour
 {
     public Transform destination;
     public Transform SpawnPoint;
@@ -15,20 +15,23 @@ public class Loaded : StateBehaviour
     public float positionThreshold;
     public GameObject timeMaster;
 
-    void OnEnable () {
+    void OnEnable()
+    {
 
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
     }
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Move(TravelDir(),destination);
+
+    // Called when the state is disabled
+    void OnDisable()
+    {
+        Debug.Log("Stopped *State*");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Move(TravelDir(), destination);
         CheckDestination(destination);
     }
     private void OnCollisionEnter(Collision collision)
@@ -48,7 +51,7 @@ public class Loaded : StateBehaviour
         }
         else return -1;
     }
-    private void Move(float dirModifier,Transform destination)
+    private void Move(float dirModifier, Transform destination)
     {
 
         Vector3 dir = Vector3.Normalize(destination.position - transform.position);
@@ -62,11 +65,9 @@ public class Loaded : StateBehaviour
 
     private void CheckDestination(Transform t)
     {
-        if (Vector3.Distance(transform.position,t.position) <= positionThreshold)
+        if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
             SendEvent("Despawn");
         }
     }
 }
-
-
