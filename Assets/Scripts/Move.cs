@@ -8,7 +8,8 @@ public class Move : MonoBehaviour
     public GameObject timeMaster;
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        timeMaster = GameObject.Find("TimeMaster");
         speed = timeMaster.GetComponent<Timers>().playerSpeed;
     }
 

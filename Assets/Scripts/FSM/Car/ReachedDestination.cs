@@ -5,21 +5,24 @@ using BehaviourMachine;
 
 public class ReachedDestination : StateBehaviour
 {
-    public GameObject timemaster;
+    public GameObject timeMaster;
     public Transform respawnPoint;
+    public bool CarEmpty;
+
     public float timer;
 
 
     // Called when the state is enabled
     void OnEnable () {
-		Debug.Log("Started *State*");
-        timer = timemaster.GetComponent<Timers>().carSpawnTime;
+		Debug.Log("Car Respawing");
+        CarEmpty = timeMaster.GetComponent<Timers>().CarEmpty;
+        timer = timeMaster.GetComponent<Timers>().carSpawnTime;
         transform.position = respawnPoint.position;
     }
  
 	// Called when the state is disabled
 	void OnDisable () {
-		Debug.Log("Stopped *State*");
+
 	}
 	
 	// Update is called once per frame
@@ -30,8 +33,17 @@ public class ReachedDestination : StateBehaviour
         }
         if (timer <= 0)
         {
+            if (timeMaster.GetComponent<Timers>().CarEmpty == true)
+            {
+                SendEvent("RespawnEmpty");
+                
+            }
 
-            SendEvent("Respawn");
+            if (timeMaster.GetComponent<Timers>().CarEmpty == false)
+            {
+                SendEvent("RespawnLoaded");
+            }
+
         }
 
 

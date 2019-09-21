@@ -37,7 +37,7 @@ public class Obstructed : StateBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
             Debug.Log("Cleared");
 

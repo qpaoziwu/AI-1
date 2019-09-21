@@ -14,4 +14,6 @@ public class Timers : MonoBehaviour
     public float dayCycleTime;
 
     public float carDespawnThreshold;
+    public float kidOffset;
+    public bool CarEmpty;
 }

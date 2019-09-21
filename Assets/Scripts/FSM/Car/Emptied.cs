@@ -8,6 +8,7 @@ public class Emptied : StateBehaviour
     public Transform destination;
     public Transform SpawnPoint;
     public Transform DropoffPoint;
+    public Transform nextPoint;
 
     public bool travelDirection;
     public Vector3 dir;
@@ -17,7 +18,7 @@ public class Emptied : StateBehaviour
 
     void OnEnable()
     {
-
+        nextPoint = destination;
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
     }
@@ -25,18 +26,20 @@ public class Emptied : StateBehaviour
     // Called when the state is disabled
     void OnDisable()
     {
+        //CarEmpty = false;
+
         Debug.Log("Stopped *State*");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move(TravelDir(), destination);
-        CheckDestination(destination);
+        Move(TravelDir(), NextDestination());
+        CheckDestination(NextDestination());
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Red")
+        if (collision.gameObject.CompareTag("Red") || collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit");
             SendEvent("Blocked");
@@ -62,12 +65,31 @@ public class Emptied : StateBehaviour
         transform.rotation = Quaternion.LookRotation(lerpDir);
 
     }
+    //Change Destination
+    public Transform NextDestination()
+    {
+        if ((nextPoint = destination) && timeMaster.GetComponent<Timers>().CarEmpty==true)
+        {
+            nextPoint = DropoffPoint;
+        }
 
+        return DropoffPoint;
+    }
+    //Check Arrived
     private void CheckDestination(Transform t)
     {
         if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
-            SendEvent("Despawn");
+            if (nextPoint = DropoffPoint)
+            {
+                SendEvent("Waiting");
+
+            }
+
+            if (nextPoint = destination)
+            {
+                //SendEvent("Despawn");
+            }
         }
     }
 

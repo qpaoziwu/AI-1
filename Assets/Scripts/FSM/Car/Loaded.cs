@@ -9,33 +9,41 @@ public class Loaded : StateBehaviour
     public Transform destination;
     public Transform SpawnPoint;
     public Transform DropoffPoint;
+    public Transform nextPoint;
 
     public bool travelDirection;
-    public bool loaded;
     public Vector3 dir;
+    public float kidOffset;
     public float speed;
     public float positionThreshold;
     public GameObject timeMaster;
+    public GameObject kid3;
 
-    void OnEnable () {
-
+    void OnEnable()
+    {
+        nextPoint = DropoffPoint;
+        
+        kidOffset = timeMaster.GetComponent<Timers>().kidOffset;
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
     }
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Move(TravelDir(),destination);
-        CheckDestination(destination);
+
+    // Called when the state is disabled
+    void OnDisable()
+    {
+        
+        Debug.Log("Stopped *State*");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Move(TravelDir(), NextDestination());
+        CheckDestination(NextDestination());
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag ("Red") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Red") || collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit");
             SendEvent("Blocked");
@@ -52,7 +60,7 @@ public class Loaded : StateBehaviour
         }
         else return -1;
     }
-    private void Move(float dirModifier,Transform destination)
+    private void Move(float dirModifier, Transform destination)
     {
 
         Vector3 dir = Vector3.Normalize(destination.position - transform.position);
@@ -63,19 +71,48 @@ public class Loaded : StateBehaviour
         transform.rotation = Quaternion.LookRotation(lerpDir);
 
     }
-    public Transform NextDestination(Transform t)
+    public Transform NextDestination()
     {
-    Transform destination;
-    Transform SpawnPoint;
-    Transform DropoffPoint;
+        if (nextPoint = destination)
+        {
+            return destination;
+        }
+        if(nextPoint = DropoffPoint)
+        {
+            return DropoffPoint;
+        }
+        if ((nextPoint= DropoffPoint)&& timeMaster.GetComponent<Timers>().CarEmpty == false)
+        {
+            return DropoffPoint;
+        }
+        if ((nextPoint = DropoffPoint) && timeMaster.GetComponent<Timers>().CarEmpty == true)
+        {
+            return destination;
+        } 
 
-        return transform;
+
+    return DropoffPoint;
+
     }
+
     private void CheckDestination(Transform t)
     {
-        if (Vector3.Distance(transform.position,t.position) <= positionThreshold)
+        if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
-            SendEvent("Despawn");
+          
+            if ((nextPoint = DropoffPoint) &&timeMaster.GetComponent<Timers>().CarEmpty == false)
+            {
+                Debug.Log("Dropoff Kid");
+                
+                Vector3 spawnOffset = new Vector3(transform.position.x, transform.position.y, transform.position.z + kidOffset);
+                Instantiate(kid3, spawnOffset, Quaternion.identity);
+                timeMaster.GetComponent<Timers>().CarEmpty = true;
+            }
+
+            if (nextPoint = destination)
+            {
+                SendEvent("Despawn");
+            }
         }
     }
 }
