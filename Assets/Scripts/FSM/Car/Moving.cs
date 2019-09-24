@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
 
-public class Emptied : StateBehaviour
+public class Moving : StateBehaviour
 {
     public Transform destination;
     public Transform SpawnPoint;
@@ -18,7 +18,7 @@ public class Emptied : StateBehaviour
 
     void OnEnable()
     {
-        nextPoint = destination;
+        //nextPoint = destination;
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
     }
@@ -44,7 +44,13 @@ public class Emptied : StateBehaviour
             Debug.Log("Hit");
             SendEvent("Blocked");
         }
+        if (collision.gameObject.CompareTag("Kid"))
+        {
 
+            timeMaster.GetComponent<Timers>().CarEmpty = false;
+
+            SendEvent("Loaded");
+        }
     }
     public float TravelDir()
     {
@@ -70,17 +76,25 @@ public class Emptied : StateBehaviour
     {
         if ((nextPoint = destination) && timeMaster.GetComponent<Timers>().CarEmpty==true)
         {
-            nextPoint = DropoffPoint;
+            nextPoint = destination;
+            
+        } else return DropoffPoint;
+
+        if ((nextPoint = DropoffPoint) && timeMaster.GetComponent<Timers>().CarEmpty == false)
+        {
+            nextPoint = destination;
+
         }
 
         return DropoffPoint;
+        
     }
     //Check Arrived
     private void CheckDestination(Transform t)
     {
         if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
-            if (nextPoint = DropoffPoint)
+            if (nextPoint = DropoffPoint) 
             {
                 SendEvent("Waiting");
 
@@ -88,7 +102,7 @@ public class Emptied : StateBehaviour
 
             if (nextPoint = destination)
             {
-                //SendEvent("Despawn");
+                SendEvent("Despawn");
             }
         }
     }
