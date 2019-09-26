@@ -90,7 +90,7 @@ public class Leaving : StateBehaviour
 
     private void CheckDestination(Transform t)
     {
-        if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
+        if (Vector3.Distance(transform.position, t.position) < positionThreshold)
         {
             if (nextPoint = destination)
             {

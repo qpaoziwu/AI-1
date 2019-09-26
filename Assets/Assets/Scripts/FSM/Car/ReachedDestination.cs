@@ -13,41 +13,49 @@ public class ReachedDestination : StateBehaviour
 
 
     // Called when the state is enabled
-    void OnEnable () {
-		Debug.Log("Car Respawing");
+    void OnEnable()
+    {
+        Debug.Log("Car Respawing");
         CarEmpty = timeMaster.GetComponent<Timers>().CarEmpty;
-        timer = timeMaster.GetComponent<Timers>().carSpawnTime;
+        if (timeMaster.GetComponent<Timers>().day)
+        {
+            timer = timeMaster.GetComponent<Timers>().carSpawnTime;
+        }
+        else
+        {
+            timer = timeMaster.GetComponent<Timers>().nightCycleTime;
+        }
+
         transform.position = respawnPoint.position;
     }
- 
-	// Called when the state is disabled
-	void OnDisable () {
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Called when the state is disabled
+    void OnDisable()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (timer > 0)
         {
             timer -= 1 * Time.deltaTime;
         }
+
         if (timer <= 0)
         {
+
             if (timeMaster.GetComponent<Timers>().CarEmpty == true)
             {
-
-                SendEvent("RespawnEmpty");
-                
+                    SendEvent("RespawnEmpty");
             }
 
             if (timeMaster.GetComponent<Timers>().CarEmpty == false)
             {
-                SendEvent("RespawnLoaded");
+                    SendEvent("RespawnLoaded");
             }
-
         }
-
-
     }
 }
 

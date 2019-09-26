@@ -18,9 +18,10 @@ GameObject:
   - component: {fileID: 5777511343689585658}
   - component: {fileID: 5777511343689585659}
   - component: {fileID: 5777511343689585604}
+  - component: {fileID: 8296172669327812959}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,23 +87,25 @@ MonoBehaviour:
   m_StateName: Loaded
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 170, y: 70}
+  m_Position: {x: 480, y: 120}
   m_Transitions:
   - m_Destination: {fileID: 5777511343689585657}
     m_EventID: 907047625
   - m_Destination: {fileID: 5777511343689585659}
     m_EventID: 1421076565
-  m_CachedInstanceID: -6384
+  m_CachedInstanceID: -3966
   destination: {fileID: 0}
   SpawnPoint: {fileID: 0}
   DropoffPoint: {fileID: 0}
+  nextPoint: {fileID: 0}
+  droppedKid: 0
   travelDirection: 0
-  loaded: 0
   dir: {x: 0, y: 0, z: 0}
+  kidOffset: 0
   speed: 0
   positionThreshold: 0
   timeMaster: {fileID: 0}
-  kid3: {fileID: 0}
+  kid3: {fileID: 7050230397195084615, guid: 7b2282bdda97b8d4d940bcbf95e2b354, type: 3}
 --- !u!114 &5777511343689585662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +125,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -6386
+  m_CachedInstanceID: -3968
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -143,7 +146,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FloatVars: []
   m_IntVars: []
-  m_BoolVars: []
+  m_BoolVars:
+  - m_ID: 368461073
+    m_Name: CarEmpty
+    m_Blackboard: {fileID: 5777511343689585663}
+    m_IsConstant: 0
+    value: 0
   m_StringVars: []
   m_Vector3Vars: []
   m_RectVars: []
@@ -177,12 +185,22 @@ MonoBehaviour:
     m_IsConstant: 0
     m_IsSystem: 0
   - m_ID: 1456161131
-    m_Name: Respawn
+    m_Name: RespawnLoaded
     m_Blackboard: {fileID: 5777511343689585663}
     m_IsConstant: 0
     m_IsSystem: 0
   - m_ID: 1421076565
     m_Name: Despawn
+    m_Blackboard: {fileID: 5777511343689585663}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 679703544
+    m_Name: RespawnEmpty
+    m_Blackboard: {fileID: 5777511343689585663}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 1099586554
+    m_Name: Waiting
     m_Blackboard: {fileID: 5777511343689585663}
     m_IsConstant: 0
     m_IsSystem: 0
@@ -204,16 +222,17 @@ MonoBehaviour:
   m_StateName: Emptied
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 490, y: -30}
+  m_Position: {x: 280, y: 370}
   m_Transitions:
-  - m_Destination: {fileID: 5777511343689585661}
-    m_EventID: 1562136105
+  - m_Destination: {fileID: 8296172669327812959}
+    m_EventID: 1099586554
   - m_Destination: {fileID: 5777511343689585659}
     m_EventID: 1421076565
-  m_CachedInstanceID: -6390
+  m_CachedInstanceID: -3972
   destination: {fileID: 0}
   SpawnPoint: {fileID: 0}
   DropoffPoint: {fileID: 0}
+  nextPoint: {fileID: 0}
   travelDirection: 0
   dir: {x: 0, y: 0, z: 0}
   speed: 0
@@ -240,7 +259,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 5777511343689585604}
     m_EventID: 4346931
-  m_CachedInstanceID: -6392
+  m_CachedInstanceID: -3974
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -264,13 +283,16 @@ MonoBehaviour:
   m_StateName: ReachedDestination
   m_Color: 0
   m_HideScript: 1
-  m_Position: {x: 600, y: 160}
+  m_Position: {x: 50, y: 220}
   m_Transitions:
   - m_Destination: {fileID: 5777511343689585661}
     m_EventID: 1456161131
-  m_CachedInstanceID: -6394
-  timemaster: {fileID: 0}
+  - m_Destination: {fileID: 5777511343689585657}
+    m_EventID: 679703544
+  m_CachedInstanceID: -3976
+  timeMaster: {fileID: 0}
   respawnPoint: {fileID: 0}
+  CarEmpty: 0
   timer: 0
 --- !u!114 &5777511343689585604
 MonoBehaviour:
@@ -293,7 +315,32 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 5777511343689585658}
     m_EventID: 1894187651
-  m_CachedInstanceID: -6396
+  m_CachedInstanceID: -3978
+--- !u!114 &8296172669327812959
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525458236344568570}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a38eb3f00a7ea48af43dea760b28dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 5777511343689585663}
+  m_Parent: {fileID: 5777511343689585658}
+  m_StateName: WaitingForKid
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 520, y: 280}
+  m_Transitions:
+  - m_Destination: {fileID: 5777511343689585661}
+    m_EventID: 1562136105
+  m_CachedInstanceID: -3980
+  timeMaster: {fileID: 0}
+  kid3: {fileID: 0}
+  kidOffset: 0
 --- !u!1 &4617267357110018400
 GameObject:
   m_ObjectHideFlags: 0

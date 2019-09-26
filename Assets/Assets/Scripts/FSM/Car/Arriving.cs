@@ -10,7 +10,7 @@ public class Arriving : StateBehaviour
     public Transform DropoffPoint;
     public Transform nextPoint;
     public Transform kidSpawnPoint;
-
+    public bool didAction;
 
     public bool travelDirection;
     public Vector3 dir;
@@ -23,6 +23,7 @@ public class Arriving : StateBehaviour
 
     void OnEnable()
     {
+        didAction = false;
         kidOffset = timeMaster.GetComponent<Timers>().kidOffset;
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
@@ -39,8 +40,8 @@ public class Arriving : StateBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(TravelDir(), NextDestination());
-        CheckDestination(NextDestination());
+        Move(TravelDir(), DropoffPoint);
+        CheckDestination(DropoffPoint);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -49,13 +50,13 @@ public class Arriving : StateBehaviour
             Debug.Log("Hit");
             SendEvent("Blocked");
         }
-        //if (collision.gameObject.CompareTag("Kid"))
-        //{
+        if (collision.gameObject.CompareTag("Kid"))
+        {
 
-        //    timeMaster.GetComponent<Timers>().CarEmpty = false;
+            timeMaster.GetComponent<Timers>().CarEmpty = false;
 
-        //    SendEvent("Loaded");
-        //}
+            SendEvent("Loaded");
+        }
     }
     public float TravelDir()
     {
@@ -99,20 +100,25 @@ public class Arriving : StateBehaviour
     {
         if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
-            if (nextPoint = DropoffPoint) 
-            {
-                if (timeMaster.GetComponent<Timers>().CarEmpty == true)
+
+                if (timeMaster.GetComponent<Timers>().CarEmpty == true && !didAction)
                 {
                     SendEvent("WaitKid");
                 }
-                if (timeMaster.GetComponent<Timers>().CarEmpty == false)
+            if (timeMaster.GetComponent<Timers>().CarEmpty == false)
+            {
+
+                if (timeMaster.GetComponent<Timers>().day)
                 {
+
                     SpawnKid();
                     timeMaster.GetComponent<Timers>().CarEmpty = true;
                     SendEvent("Leave");
                 }
-
+                //didAction = true;
             }
+
+                
 
             //if (nextPoint = destination)
             //{
@@ -123,8 +129,8 @@ public class Arriving : StateBehaviour
     private void SpawnKid()
     {
         Debug.Log("Dropoff Kid");
-
+        didAction = true;
         Vector3 spawnOffset = new Vector3(DropoffPoint.transform.position.x, DropoffPoint.transform.position.y, DropoffPoint.transform.position.z + kidOffset);
-        Instantiate(kid3, kidSpawnPoint.position, Quaternion.identity);
+        Instantiate(kid3, spawnOffset, Quaternion.identity);
     }
 }
