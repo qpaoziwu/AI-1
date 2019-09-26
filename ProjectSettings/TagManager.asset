@@ -9,6 +9,7 @@ TagManager:
   - Green
   - Kid
   - Car
+  - Kid2
   layers:
   - Default
   - TransparentFX
