@@ -35,6 +35,7 @@ public class ReachedDestination : StateBehaviour
         {
             if (timeMaster.GetComponent<Timers>().CarEmpty == true)
             {
+
                 SendEvent("RespawnEmpty");
                 
             }

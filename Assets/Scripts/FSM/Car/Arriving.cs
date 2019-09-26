@@ -3,26 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
 
-public class Loaded : StateBehaviour
+public class Arriving : StateBehaviour
 {
-
     public Transform destination;
     public Transform SpawnPoint;
     public Transform DropoffPoint;
     public Transform nextPoint;
+    public Transform kidSpawnPoint;
 
-    public bool droppedKid;
+
     public bool travelDirection;
     public Vector3 dir;
-    public float kidOffset;
     public float speed;
+    public float kidOffset;
     public float positionThreshold;
+
     public GameObject timeMaster;
     public GameObject kid3;
 
     void OnEnable()
     {
-        //droppedKid = false;
         kidOffset = timeMaster.GetComponent<Timers>().kidOffset;
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
@@ -31,8 +31,9 @@ public class Loaded : StateBehaviour
     // Called when the state is disabled
     void OnDisable()
     {
-        //droppedKid = true;
-        Debug.Log("Despawn Car");
+        //CarEmpty = false;
+
+        Debug.Log("Stopped *State*");
     }
 
     // Update is called once per frame
@@ -48,16 +49,14 @@ public class Loaded : StateBehaviour
             Debug.Log("Hit");
             SendEvent("Blocked");
         }
+        //if (collision.gameObject.CompareTag("Kid"))
+        //{
 
-        if (collision.gameObject.CompareTag("Kid"))
-        {
-            timeMaster.GetComponent<Timers>().CarEmpty = false;
-            
-        }
+        //    timeMaster.GetComponent<Timers>().CarEmpty = false;
 
+        //    SendEvent("Loaded");
+        //}
     }
-
-
     public float TravelDir()
     {
         if (dir.x >= 0)
@@ -77,48 +76,48 @@ public class Loaded : StateBehaviour
         transform.rotation = Quaternion.LookRotation(lerpDir);
 
     }
+    //Change Destination
     public Transform NextDestination()
     {
-        if ((nextPoint == DropoffPoint))
-        {
-            if (droppedKid && (timeMaster.GetComponent<Timers>().CarEmpty == true))
-            {
-                return destination;
-            }
-        }
-        if (nextPoint == destination)
-        {
-            if (timeMaster.GetComponent<Timers>().CarEmpty == false)
-            {
-                return DropoffPoint;
-            }
-        } 
-    return destination;
+        //if ((nextPoint = destination) && timeMaster.GetComponent<Timers>().CarEmpty==true)
+        //{
+        //    nextPoint = destination;
+            
+        //} else return DropoffPoint;
 
+        //if ((nextPoint = DropoffPoint) && timeMaster.GetComponent<Timers>().CarEmpty == false)
+        //{
+        //    nextPoint = destination;
+
+        //}
+
+        return DropoffPoint;
+        
     }
-
+    //Check Arrived
     private void CheckDestination(Transform t)
     {
         if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
-            if (nextPoint = destination)
+            if (nextPoint = DropoffPoint) 
             {
-                SendEvent("Despawn");
+                if (timeMaster.GetComponent<Timers>().CarEmpty == true)
+                {
+                    SendEvent("WaitKid");
+                }
+                if (timeMaster.GetComponent<Timers>().CarEmpty == false)
+                {
+                    SpawnKid();
+                    timeMaster.GetComponent<Timers>().CarEmpty = true;
+                    SendEvent("Leave");
+                }
+
             }
 
-            if (nextPoint = DropoffPoint)
-            {
-                if (timeMaster.GetComponent<Timers>().CarEmpty == false)
-                    //!droppedKid)
-                    //&& (timeMaster.GetComponent<Timers>().CarEmpty == false) )
-                    //nextPoint = destination;
-                    //droppedKid = true;
-                   // timeMaster.GetComponent<Timers>().CarEmpty = true;
-                {
-                    //timeMaster.GetComponent<Timers>().CarEmpty = true;
-                    //SpawnKid();
-                }
-            }
+            //if (nextPoint = destination)
+            //{
+            //    SendEvent("Despawn");
+            //}
         }
     }
     private void SpawnKid()
@@ -126,8 +125,6 @@ public class Loaded : StateBehaviour
         Debug.Log("Dropoff Kid");
 
         Vector3 spawnOffset = new Vector3(DropoffPoint.transform.position.x, DropoffPoint.transform.position.y, DropoffPoint.transform.position.z + kidOffset);
-        Instantiate(kid3, spawnOffset, Quaternion.identity);
+        Instantiate(kid3, kidSpawnPoint.position, Quaternion.identity);
     }
 }
-
-

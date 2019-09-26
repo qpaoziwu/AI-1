@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
 
-public class Moving : StateBehaviour
+public class Leaving : StateBehaviour
 {
+
     public Transform destination;
     public Transform SpawnPoint;
     public Transform DropoffPoint;
     public Transform nextPoint;
 
+    public bool droppedKid;
     public bool travelDirection;
     public Vector3 dir;
     public float speed;
@@ -18,7 +20,7 @@ public class Moving : StateBehaviour
 
     void OnEnable()
     {
-        //nextPoint = destination;
+        //droppedKid = false;
         speed = timeMaster.GetComponent<Timers>().carSpeed;
         positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
     }
@@ -26,9 +28,8 @@ public class Moving : StateBehaviour
     // Called when the state is disabled
     void OnDisable()
     {
-        //CarEmpty = false;
-
-        Debug.Log("Stopped *State*");
+        //droppedKid = true;
+        Debug.Log("Despawn Car");
     }
 
     // Update is called once per frame
@@ -44,14 +45,10 @@ public class Moving : StateBehaviour
             Debug.Log("Hit");
             SendEvent("Blocked");
         }
-        if (collision.gameObject.CompareTag("Kid"))
-        {
 
-            timeMaster.GetComponent<Timers>().CarEmpty = false;
-
-            SendEvent("Loaded");
-        }
     }
+
+
     public float TravelDir()
     {
         if (dir.x >= 0)
@@ -71,40 +68,51 @@ public class Moving : StateBehaviour
         transform.rotation = Quaternion.LookRotation(lerpDir);
 
     }
-    //Change Destination
     public Transform NextDestination()
     {
-        if ((nextPoint = destination) && timeMaster.GetComponent<Timers>().CarEmpty==true)
-        {
-            nextPoint = destination;
-            
-        } else return DropoffPoint;
+        //if ((nextPoint == DropoffPoint))
+        //{
+        //    if (droppedKid && (timeMaster.GetComponent<Timers>().CarEmpty == true))
+        //    {
+        //        return destination;
+        //    }
+        //}
+        //if (nextPoint == destination)
+        //{
+        //    if (timeMaster.GetComponent<Timers>().CarEmpty == false)
+        //    {
+        //        return DropoffPoint;
+        //    }
+        //} 
+    return destination;
 
-        if ((nextPoint = DropoffPoint) && timeMaster.GetComponent<Timers>().CarEmpty == false)
-        {
-            nextPoint = destination;
-
-        }
-
-        return DropoffPoint;
-        
     }
-    //Check Arrived
+
     private void CheckDestination(Transform t)
     {
         if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
-            if (nextPoint = DropoffPoint) 
-            {
-                SendEvent("Waiting");
-
-            }
-
             if (nextPoint = destination)
             {
                 SendEvent("Despawn");
             }
+
+            //if (nextPoint = DropoffPoint)
+            //{
+            //    if (timeMaster.GetComponent<Timers>().CarEmpty == false)
+            //        //!droppedKid)
+            //        //&& (timeMaster.GetComponent<Timers>().CarEmpty == false) )
+            //        //nextPoint = destination;
+            //        //droppedKid = true;
+            //       // timeMaster.GetComponent<Timers>().CarEmpty = true;
+            //    {
+            //        //timeMaster.GetComponent<Timers>().CarEmpty = true;
+            //        //SpawnKid();
+            //    }
+            //}
         }
     }
 
 }
+
+
