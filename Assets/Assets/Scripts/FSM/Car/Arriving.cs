@@ -101,10 +101,13 @@ public class Arriving : StateBehaviour
         if (Vector3.Distance(transform.position, t.position) <= positionThreshold)
         {
 
-                if (timeMaster.GetComponent<Timers>().CarEmpty == true && !didAction)
+            if (timeMaster.GetComponent<Timers>().CarEmpty == true && !didAction)
+            {
+                if (!timeMaster.GetComponent<Timers>().day)
                 {
                     SendEvent("WaitKid");
-                }
+                }else SendEvent("Leave");
+            }
             if (timeMaster.GetComponent<Timers>().CarEmpty == false)
             {
 
