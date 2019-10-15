@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4274710943663822858
+--- !u!1 &3527086697832461182
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1151541047773342288}
-  - component: {fileID: 5797257769095781366}
-  - component: {fileID: 2346017689524531026}
+  - component: {fileID: 313967904289587492}
+  - component: {fileID: 6616798749002985602}
+  - component: {fileID: 3111656349954851878}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -18,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1151541047773342288
+--- !u!4 &313967904289587492
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4274710943663822858}
+  m_GameObject: {fileID: 3527086697832461182}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7932639928829329795}
+  m_Father: {fileID: 7329060436889987831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5797257769095781366
+--- !u!33 &6616798749002985602
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4274710943663822858}
+  m_GameObject: {fileID: 3527086697832461182}
   m_Mesh: {fileID: 4068373912626513877, guid: fd620473e35c6b645a75687f7f4b9ab8, type: 3}
---- !u!23 &2346017689524531026
+--- !u!23 &3111656349954851878
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4274710943663822858}
+  m_GameObject: {fileID: 3527086697832461182}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,7 +78,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &6362807975729771408
+--- !u!1 &6047582757752969444
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,44 +86,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7932639928829329795}
-  - component: {fileID: 3129105853817973403}
-  - component: {fileID: 3129105853817973396}
-  - component: {fileID: 3129105853817973397}
-  - component: {fileID: 3129105853817973399}
-  - component: {fileID: 814825367}
-  - component: {fileID: 1098314193}
-  - component: {fileID: 1098314194}
-  - component: {fileID: 1098314195}
+  - component: {fileID: 7329060436889987831}
+  - component: {fileID: 2363467779709583855}
+  - component: {fileID: 2363467779709583840}
+  - component: {fileID: 2363467779709583841}
+  - component: {fileID: 837784285075248355}
+  - component: {fileID: 837784283695619291}
   m_Layer: 0
-  m_Name: Kid4
+  m_Name: Gollum
   m_TagString: Kid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7932639928829329795
+--- !u!4 &7329060436889987831
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
+  m_GameObject: {fileID: 6047582757752969444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.78, y: 0, z: 28.02}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -26.9, y: 1, z: 28.6}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
-  - {fileID: 1151541047773342288}
+  - {fileID: 313967904289587492}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &3129105853817973403
+--- !u!64 &2363467779709583855
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
+  m_GameObject: {fileID: 6047582757752969444}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -131,39 +128,39 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4068373912626513877, guid: fd620473e35c6b645a75687f7f4b9ab8, type: 3}
---- !u!114 &3129105853817973396
+--- !u!114 &2363467779709583840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
+  m_GameObject: {fileID: 6047582757752969444}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27b962ddfa21461eb78fac1cb2f955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Blackboard: {fileID: 3129105853817973397}
+  m_Blackboard: {fileID: 2363467779709583841}
   m_Parent: {fileID: 0}
   m_StateName: StateMachine
   m_Color: 0
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -24930
+  m_CachedInstanceID: -258258
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
-  m_StartState: {fileID: 1098314195}
+  m_StartState: {fileID: 0}
   m_AnyState: {fileID: 0}
   m_ConcurrentState: {fileID: 0}
---- !u!114 &3129105853817973397
+--- !u!114 &2363467779709583841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
+  m_GameObject: {fileID: 6047582757752969444}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
@@ -186,57 +183,32 @@ MonoBehaviour:
   m_ConcreteFsmEvents:
   - m_ID: 1214494805
     m_Name: TimeToPlay
-    m_Blackboard: {fileID: 3129105853817973397}
+    m_Blackboard: {fileID: 2363467779709583841}
     m_IsConstant: 0
     m_IsSystem: 0
   - m_ID: 1061935223
     m_Name: TimeToLeave
-    m_Blackboard: {fileID: 3129105853817973397}
+    m_Blackboard: {fileID: 2363467779709583841}
     m_IsConstant: 0
     m_IsSystem: 0
   - m_ID: 1454500857
     m_Name: TimeToRun
-    m_Blackboard: {fileID: 3129105853817973397}
+    m_Blackboard: {fileID: 2363467779709583841}
     m_IsConstant: 0
     m_IsSystem: 0
   - m_ID: 456403323
     m_Name: TimetoCatch
-    m_Blackboard: {fileID: 3129105853817973397}
+    m_Blackboard: {fileID: 2363467779709583841}
     m_IsConstant: 0
     m_IsSystem: 0
   m_Namespace: 
---- !u!114 &3129105853817973399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d376cf04d7d2c498c8a06ac45ef55a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Blackboard: {fileID: 3129105853817973397}
-  m_Parent: {fileID: 3129105853817973396}
-  m_StateName: WaitingForPickup
-  m_Color: 0
-  m_HideScript: 0
-  m_Position: {x: 40, y: 160}
-  m_Transitions:
-  - m_Destination: {fileID: 1098314195}
-    m_EventID: 1214494805
-  m_CachedInstanceID: -24934
-  speed: 0
-  timeMaster: {fileID: 0}
-  destination: {fileID: 0}
---- !u!54 &814825367
+--- !u!54 &837784285075248355
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
+  m_GameObject: {fileID: 6047582757752969444}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -246,89 +218,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &1098314193
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6221d0b1f0f80f4ca4eb377cfe00dd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Blackboard: {fileID: 3129105853817973397}
-  m_Parent: {fileID: 1098314195}
-  m_StateName: KidRunning
-  m_Color: 0
-  m_HideScript: 1
-  m_Position: {x: 370, y: 110}
-  m_Transitions:
-  - m_Destination: {fileID: 1098314194}
-    m_EventID: 456403323
-  m_CachedInstanceID: -24938
-  PlayPoint: {fileID: 0}
-  timeMaster: {fileID: 0}
-  radius: 0
-  rotationSpeed: 0
-  distanceThreshold: 0
-  time: 0
-  moveSpeed: 0
-  caughtTime: 2
-  caught: 0
---- !u!114 &1098314194
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47dfa6b0e766433418189e5c658605d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Blackboard: {fileID: 3129105853817973397}
-  m_Parent: {fileID: 1098314195}
-  m_StateName: KidCatching
-  m_Color: 0
-  m_HideScript: 1
-  m_Position: {x: 140, y: 110}
-  m_Transitions:
-  - m_Destination: {fileID: 1098314193}
-    m_EventID: 1454500857
-  m_CachedInstanceID: -24940
-  speed: 0
-  timeMaster: {fileID: 0}
-  destination: {fileID: 0}
-  kid: {fileID: 0}
-  catchCD: 0
---- !u!114 &1098314195
+--- !u!114 &837784283695619291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362807975729771408}
-  m_Enabled: 0
+  m_GameObject: {fileID: 6047582757752969444}
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27b962ddfa21461eb78fac1cb2f955f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e1603702ad44424db56226e9bd0cf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Blackboard: {fileID: 3129105853817973397}
-  m_Parent: {fileID: 3129105853817973396}
-  m_StateName: Playing
-  m_Color: 0
-  m_HideScript: 0
-  m_Position: {x: 340, y: 160}
-  m_Transitions:
-  - m_Destination: {fileID: 3129105853817973399}
-    m_EventID: 1061935223
-  m_CachedInstanceID: -24942
-  m_Description: 
-  m_EnabledState: {fileID: 0}
-  m_LastEnabledState: {fileID: 0}
-  m_StartState: {fileID: 1098314193}
-  m_AnyState: {fileID: 0}
-  m_ConcurrentState: {fileID: 0}
+  destination: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  distanceDir: {x: 0, y: 0, z: 0}
+  speed: 3.7
+  cameraChaseSpeed: 7.1
+  positionThreshold: 1.27
+  flipLookDir: 0
+  moving: 1
+  looking: 1

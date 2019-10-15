@@ -15,6 +15,8 @@ public class MoveTo : MonoBehaviour
     [Range(1, 5)]
     public float positionThreshold;
 
+    public bool flipLookDir;
+    public bool moving;
     public bool looking;
     void Update()
     {
@@ -25,17 +27,25 @@ public class MoveTo : MonoBehaviour
 
     }
     private void Move(Transform destination)
-    {
-
+    { 
         dir = Vector3.Normalize(destination.position - transform.position);
         Vector3 lerpDir = Vector3.Lerp(transform.position, dir, cameraChaseSpeed);
         distanceDir = new Vector3(lerpDir.x, 0f, lerpDir.z);
         if (Vector3.Distance(transform.position, destination.position) >= positionThreshold)
         {
-            transform.position += distanceDir * Time.deltaTime * speed;
+            if (moving)
+            {
+                transform.position += distanceDir * Time.deltaTime * speed;
+            }
+
             if (looking)
             {
-                transform.rotation = Quaternion.LookRotation(lerpDir);
+                if (flipLookDir)
+                {
+                    transform.rotation = Quaternion.LookRotation(-lerpDir);
+                }else
+                    transform.rotation = Quaternion.LookRotation(lerpDir);
+
             }
         }
     }

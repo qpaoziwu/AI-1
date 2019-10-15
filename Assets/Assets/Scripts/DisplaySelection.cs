@@ -54,7 +54,7 @@ public class DisplaySelection : MonoBehaviour
     {
         if (CurrentWaypoint != null)
         {
-            gameObject.transform.position = CurrentWaypoint.transform.position+ new Vector3(0,0.01f,0);
+            gameObject.transform.position = CurrentWaypoint.transform.position+ new Vector3(0,1.01f,0);
         }
     }
 
