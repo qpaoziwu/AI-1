@@ -14,6 +14,9 @@ public class KidRunning : StateBehaviour
     public float moveSpeed;
     public float caughtTime = 1f;
     public bool caught = false;
+    public Vector3 circleDir;
+    public Vector3 distanceDir;
+    public Vector3 finalPosition;
     // Called when the state is enabled
     void OnEnable()
     {
@@ -34,7 +37,7 @@ public class KidRunning : StateBehaviour
     public void CaughtTimer()
     {
         if (caught)
-        { 
+        {
             caughtTime -= Time.deltaTime;
             if (caughtTime <= 0)
             {
@@ -50,8 +53,8 @@ public class KidRunning : StateBehaviour
     void Update()
     {
         Play(PlayPoint.position);
-        CaughtTimer();
-        CheckDay();
+        //CaughtTimer();
+        //CheckDay();
     }
 
     public void CheckDay()
@@ -64,27 +67,32 @@ public class KidRunning : StateBehaviour
     public void Play(Vector3 point)
     {
 
-        float distanceToPlaypoint = Vector3.Distance(transform.position, point);
+        //float distanceToPlaypoint = Vector3.Distance(transform.position, point);
         Vector3 dir = Vector3.Normalize(point - transform.position);
         time += Time.deltaTime;
+        //moveSpeed = timeMaster.GetComponent<Timers>().playerSpeed;
         radius = timeMaster.GetComponent<Timers>().kid2Radius ;
-        rotationSpeed = timeMaster.GetComponent<Timers>().kid2RotationSpeed;
-        Vector3 circleDir = new Vector3(Mathf.Sin(time), 0f, Mathf.Cos(time));
-        moveSpeed = timeMaster.GetComponent<Timers>().playerSpeed;
+        //rotationSpeed = timeMaster.GetComponent<Timers>().kid2RotationSpeed;
+        circleDir = new Vector3(Mathf.Sin(Time.time), 0f, Mathf.Cos(Time.time));
+        distanceDir = new Vector3(dir.x, 0f, dir.z);
         if (!caught)
         {
-            if (distanceToPlaypoint <= timeMaster.GetComponent<Timers>().kid2DistanceThreshold)
-            {
-                transform.position += circleDir * radius * (Time.deltaTime * Random.value);
-                transform.rotation = Quaternion.LookRotation(circleDir);
-            }
-            else
-            {
-                transform.position += dir * moveSpeed * Time.deltaTime;
-                transform.rotation = Quaternion.LookRotation(dir);
-            }
+            //if (distanceToPlaypoint <= timeMaster.GetComponent<Timers>().kid2DistanceThreshold)
+            //{
+                
+                finalPosition = (point + (circleDir * radius)* moveSpeed) * Time.deltaTime ;
+                transform.position = finalPosition;
+                transform.rotation = Quaternion.LookRotation(-circleDir);
+            //print(point);
+           // }
+            //else
+            //{
+            //    transform.position += distanceDir * moveSpeed * Time.deltaTime;
+            //    transform.rotation = Quaternion.LookRotation(dir);
+           // }
         }
     }
+
 }
 
 
