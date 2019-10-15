@@ -5,26 +5,23 @@ using UnityEngine;
 public class MoveTo : MonoBehaviour
 {
     public Transform destination;
-    public bool travelDirection;
+
     public Vector3 dir;
     public Vector3 distanceDir;
+    [Range(1, 50)]
     public float speed;
-    [Range (1,100)]
+    [Range (1, 100)]
     public float cameraChaseSpeed;
-
+    [Range(1, 5)]
     public float positionThreshold;
-    public GameObject timeMaster;
-    // Start is called before the first frame update
-    void Start()
-    {
-        positionThreshold = timeMaster.GetComponent<Timers>().carDespawnThreshold;
 
-    }
-
-    // Update is called once per frame
+    public bool looking;
     void Update()
     {
-        Move(destination);
+        if (destination != null)
+        {
+            Move(destination);
+        }
 
     }
     private void Move(Transform destination)
@@ -32,12 +29,14 @@ public class MoveTo : MonoBehaviour
 
         dir = Vector3.Normalize(destination.position - transform.position);
         Vector3 lerpDir = Vector3.Lerp(transform.position, dir, cameraChaseSpeed);
-        speed = timeMaster.GetComponent<Timers>().carSpeed;
         distanceDir = new Vector3(lerpDir.x, 0f, lerpDir.z);
         if (Vector3.Distance(transform.position, destination.position) >= positionThreshold)
         {
-        transform.position += distanceDir * Time.deltaTime * speed ;
-            //transform.rotation = Quaternion.LookRotation(lerpDir);
+            transform.position += distanceDir * Time.deltaTime * speed;
+            if (looking)
+            {
+                transform.rotation = Quaternion.LookRotation(lerpDir);
+            }
         }
     }
 
