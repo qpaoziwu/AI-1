@@ -34,15 +34,11 @@ public class TextToUI : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void SetText(string line)
     {
         text.text = line;
+        Invoke(text.text = silent, 3f);
     }
 
 }

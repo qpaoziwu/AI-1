@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 2363467779709583840}
   - component: {fileID: 2363467779709583841}
   - component: {fileID: 837784285075248355}
+  - component: {fileID: 6537406068056188542}
   - component: {fileID: 837784283695619291}
   m_Layer: 0
   m_Name: Gollum
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -258258
+  m_CachedInstanceID: -341808
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -218,7 +219,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &837784283695619291
+--- !u!114 &6537406068056188542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,6 +227,18 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047582757752969444}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a600f9320061c943b5a55c7343c943b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &837784283695619291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047582757752969444}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e1603702ad44424db56226e9bd0cf1a, type: 3}
   m_Name: 

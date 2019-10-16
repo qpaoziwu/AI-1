@@ -43,8 +43,8 @@ public class MoveTo : MonoBehaviour
                 if (flipLookDir)
                 {
                     transform.rotation = Quaternion.LookRotation(-lerpDir);
-                }else
-                    transform.rotation = Quaternion.LookRotation(lerpDir);
+                }
+                else { transform.rotation = Quaternion.LookRotation(lerpDir); }
 
             }
         }
