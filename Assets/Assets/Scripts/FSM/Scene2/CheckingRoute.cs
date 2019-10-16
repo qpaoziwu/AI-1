@@ -2,23 +2,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
+using UnityEngine.AI;
 
 public class CheckingRoute : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
-		Debug.Log("Started *State*");
-	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public GameObject Waypoint;
+    NavMeshAgent navMeshAgent;
+
+    void OnEnable()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+    }
+
+    // Called when the state is disabled
+    void OnDisable()
+    { 
+        navMeshAgent.stoppingDistance = 0f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        PlaceWaypoint();
+    }
+    void PlaceWaypoint()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Waypoint != null)
+            {
+
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Waypoint.gameObject.transform.position = hit.point;
+                    print(Waypoint.name + " position is now " + Waypoint.gameObject.transform.position);
+                    SendEvent("Reached");
+                }
+            }
+        }
+    }
 }
 
 

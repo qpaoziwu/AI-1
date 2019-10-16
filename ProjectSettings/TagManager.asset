@@ -10,6 +10,10 @@ TagManager:
   - Kid
   - Car
   - Kid2
+  - Sam
+  - Gollum
+  - Pot
+  - Butterfly
   layers:
   - Default
   - TransparentFX

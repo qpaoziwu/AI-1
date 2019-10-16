@@ -6,6 +6,8 @@ public class SetWaypoint : MonoBehaviour
 {
     public GameObject Waypoint1;
     public GameObject Waypoint2;
+    public GameObject CameraWaypoint;
+    public GameObject Player;
     public GameObject CurrentWaypoint;
     // Start is called before the first frame update
     void Start()
@@ -17,9 +19,18 @@ public class SetWaypoint : MonoBehaviour
     void Update()
     {
         SelectWaypoint();
-        PlaceWaypoint();
+        //PlaceWaypoint();
+        SetCameraWaypoint();
     }
-
+    void SetCameraWaypoint()
+    {
+        if (CurrentWaypoint != null)
+        {
+            CameraWaypoint.transform.position = CurrentWaypoint.transform.position;
+        }else 
+            CameraWaypoint.transform.position = Player.transform.position;
+        
+    }
     void SelectWaypoint()
     {
         if(Waypoint1 & Waypoint2 !=null)
@@ -27,7 +38,7 @@ public class SetWaypoint : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 CurrentWaypoint = Waypoint1;
-                print("Waypoint1 Selected");
+                print(Waypoint1.name+" Selected");
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))

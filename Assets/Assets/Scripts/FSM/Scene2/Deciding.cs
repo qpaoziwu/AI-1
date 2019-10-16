@@ -16,9 +16,25 @@ public class Deciding : StateBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+	    if(gameObject.tag == "Sam")
+        {
+            SendEvent("MoveToPlayer");
+        }
+
+        if (gameObject.tag == "Gollum")
+        {
+            if (gameObject.GetComponent<Gollum_Hunger>().hungry)
+            {
+                SendEvent("Hungry");
+            }
+            if (!gameObject.GetComponent<Gollum_Hunger>().hungry)
+            {
+                SendEvent("NotHungry");
+            }
+        }
+    }
 }
 
 

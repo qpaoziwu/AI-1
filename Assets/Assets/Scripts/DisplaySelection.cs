@@ -9,6 +9,10 @@ public class DisplaySelection : MonoBehaviour
     public GameObject Waypoint2;
     public GameObject CurrentWaypoint;
     public MeshRenderer mesh;
+    public bool blinking;
+    public float Scale;
+    public float blinkSpeed;
+
     private void Start()
     {
         mesh = GetComponent<MeshRenderer>();
@@ -18,8 +22,22 @@ public class DisplaySelection : MonoBehaviour
     {
         SelectWaypoint();
         PlaceWaypoint();
+        ScaleOverTime();
+
     }
 
+    void ScaleOverTime()
+    {
+        if (blinking)
+        {
+            gameObject.transform.localScale -= (new Vector3(0.5f, 0.5f, 0.5f)) * Time.deltaTime * blinkSpeed;
+            Vector3 ScalingVector = new Vector3(Scale, Scale, Scale);
+            if (gameObject.transform.localScale.x <= 0)
+            {
+                gameObject.transform.localScale = ScalingVector;
+            }
+        }
+    }
     void SelectWaypoint()
     {
         if (Waypoint1 & Waypoint2 != null)
@@ -54,7 +72,7 @@ public class DisplaySelection : MonoBehaviour
     {
         if (CurrentWaypoint != null)
         {
-            gameObject.transform.position = CurrentWaypoint.transform.position+ new Vector3(0,0.01f,0);
+            gameObject.transform.position = CurrentWaypoint.transform.position+ new Vector3(0, 0.01f, 0);
         }
     }
 

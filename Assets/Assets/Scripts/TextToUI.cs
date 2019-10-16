@@ -33,12 +33,15 @@ public class TextToUI : MonoBehaviour
             text = GetComponent<TextMeshPro>();
         }
     }
-
+    private void Update()
+    {
+        text.text = displayText;
+    }
 
     public void SetText(string line)
     {
-        text.text = line;
-        Invoke(text.text = silent, 3f);
+        displayText = line;
+        Invoke(displayText = silent, 3f);
     }
 
 }

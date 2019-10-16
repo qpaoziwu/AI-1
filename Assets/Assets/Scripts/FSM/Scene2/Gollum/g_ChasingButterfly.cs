@@ -2,23 +2,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
+using UnityEngine.AI;
+
 
 public class g_ChasingButterfly : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
-		Debug.Log("Started *State*");
-	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public Vision vision;
+
+    public GameObject Waypoint;
+    NavMeshAgent navMeshAgent;
+
+    // Called when the state is enabled
+    void OnEnable()
+    {
+        vision = vision.GetComponent<Vision>();
+
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (vision.visibleObjects.Count > 0)
+        {
+            Waypoint.transform.position = vision.visibleObjects[0].transform.position;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Butterfly")
+        {
+            other.gameObject.SetActive(false);
+            SendEvent("CaughtButterfly");
+        }
+    }
+
 }
 
 
