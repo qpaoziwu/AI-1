@@ -17,8 +17,8 @@ public class TextToUI : MonoBehaviour
 
     public string s_checking = "On my way sir";
     public string s_limping = "Mr Frodo, I'm hurt";
-    public string s_walking = "Mr Frodo, I'm not hurt anymore";
-    public string s_resting = "Mr Frodo, I just need a second";
+    public string s_walking = "Let's go Mr Frodo";
+    public string s_resting = "Need to lay down for a bit";
     public string s_cooking = "Right away Mr Frodo";
     public string s_waiting = "Food is ready Sir!";
 
@@ -34,6 +34,7 @@ public class TextToUI : MonoBehaviour
         {
             text = GetComponent<TextMeshPro>();
         }
+
     }
     private void Update()
     {
@@ -49,11 +50,14 @@ public class TextToUI : MonoBehaviour
     }
     private void ResetText()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
+        if (gameObject.tag != "Food")
         {
-            displayText = silent;
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                displayText = silent;
 
+            }
         }
     }
 }

@@ -8,7 +8,8 @@ public class SaySomething : StateBehaviour
     public TextToUI textObject;
     public float timer;
     public bool reached;
-    // Called when the state is enabled
+
+
     void OnEnable () {
         reached = false;
         timer = 0f;
@@ -16,37 +17,32 @@ public class SaySomething : StateBehaviour
         
     }
  
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
-	
-	// Update is called once per frame
+
 	void Update ()
     {
         StayTimer();
     }
-    private void OnTriggerEnter(Collider other)
+
+
+    private void OnTriggerStay(Collider other)
     {
-        
-        if (other.gameObject.tag == "SamWaypoint")
-        {
-            if (gameObject.tag == "Sam")
-            {
-                reached = true;
-                textObject.SetText("??");
-            }
-        }
         if (other.gameObject.tag == "GollumWaypoint")
         {
             if (gameObject.tag == "Gollum")
             {
                 reached = true;
-                textObject.SetText("??");
             }
         }
-        
+
+        if (other.gameObject.tag == "SamWaypoint")
+        {
+            if (gameObject.tag == "Sam")
+            {
+                reached = true;
+            }
+        }
     }
+
     public void StayTimer()
     {
         if (reached)
@@ -58,6 +54,7 @@ public class SaySomething : StateBehaviour
             }
         }
     }
+
 }
 
 

@@ -13,8 +13,8 @@ public class s_Limping : StateBehaviour
     void OnEnable () {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = 3.5f;
-        textObject = textObject.GetComponent<TextToUI>();
-        textObject.SetText(textObject.s_limping);
+
+        textObject.GetComponent<TextToUI>().SetText(textObject.s_limping);
 
     }
     private void Update()

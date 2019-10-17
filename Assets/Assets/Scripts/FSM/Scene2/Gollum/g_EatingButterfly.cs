@@ -5,15 +5,13 @@ using BehaviourMachine;
 
 public class g_EatingButterfly : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
+    public TextToUI textObject;
+
+    // Called when the state is enabled
+    void OnEnable () {
         EatButterfly();
     }
  
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,6 +25,8 @@ public class g_EatingButterfly : StateBehaviour
     void DoneEating()
     {
         gameObject.GetComponent<Gollum_Hunger>().hunger += 1;
+        textObject.GetComponent<TextToUI>().SetText(textObject.g_catching);
+
         SendEvent("AteButterfly");
     }
 }

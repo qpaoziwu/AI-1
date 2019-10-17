@@ -5,18 +5,9 @@ using BehaviourMachine;
 
 public class Deciding : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
-		Debug.Log("Started *State*");
-	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    public TextToUI textObject;
+
+    void Update ()
     {
 	    if(gameObject.tag == "Sam")
         {
@@ -27,10 +18,14 @@ public class Deciding : StateBehaviour
         {
             if (gameObject.GetComponent<Gollum_Hunger>().hungry)
             {
+                textObject.GetComponent<TextToUI>().SetText("Gollum is hungry!");
+
                 SendEvent("Hungry");
             }
             if (!gameObject.GetComponent<Gollum_Hunger>().hungry)
             {
+                textObject.GetComponent<TextToUI>().SetText("heehee");
+
                 SendEvent("NotHungry");
             }
         }

@@ -12,6 +12,9 @@ public class g_ChasingButterfly : StateBehaviour
     public GameObject Waypoint;
     NavMeshAgent navMeshAgent;
 
+    public TextToUI textObject;
+
+
     // Called when the state is enabled
     void OnEnable()
     {
@@ -36,6 +39,8 @@ public class g_ChasingButterfly : StateBehaviour
         if (other.gameObject.tag == "Butterfly")
         {
             other.gameObject.SetActive(false);
+            textObject.GetComponent<TextToUI>().SetText(textObject.g_catching);
+
             SendEvent("CaughtButterfly");
         }
     }

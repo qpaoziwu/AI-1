@@ -6,26 +6,31 @@ using BehaviourMachine;
 public class CheckingDestination : StateBehaviour
 {
 
+    public TextToUI textObject;
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag=="Pot")
+        if (gameObject.tag == "Sam")
         {
-            if (gameObject.tag == "Sam")
+            if (collision.gameObject.tag=="Pot")
             {
+
+                textObject.GetComponent<TextToUI>().SetText("Need to lay down for a bit");
                 SendEvent("CookingPot");
             }
         }
-        if (collision.gameObject.tag == "Artifact")
+        if (gameObject.tag == "Gollum")
         {
-            if (gameObject.tag == "Gollum")
-            {
+            if (collision.gameObject.tag == "Artifact")
+            { 
+
+                textObject.GetComponent<TextToUI>().SetText(textObject.g_artifact);
                 SendEvent("GotArtifact");
             }
         }
@@ -36,6 +41,8 @@ public class CheckingDestination : StateBehaviour
         {
             if (gameObject.tag == "Sam")
             {
+                //textObject.GetComponent<TextToUI>().SetText("??");
+
                 SendEvent("Null");
 
             }
@@ -44,6 +51,8 @@ public class CheckingDestination : StateBehaviour
         {
             if (gameObject.tag == "Gollum")
             {
+                //textObject.GetComponent<TextToUI>().SetText("??");
+
                 SendEvent("Null");
 
             }

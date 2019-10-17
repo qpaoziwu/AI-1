@@ -5,14 +5,17 @@ using BehaviourMachine;
 
 public class g_WaitingForReward : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
-		Debug.Log("Started *State*");
-	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
+    public TextToUI textObject;
+
+    // Called when the state is enabled
+    void OnEnable () {
+        textObject.GetComponent<TextToUI>().SetText(textObject.g_bargaining);
+
+    }
+
+    // Called when the state is disabled
+    void OnDisable () {
+
 	}
 	
 	// Update is called once per frame

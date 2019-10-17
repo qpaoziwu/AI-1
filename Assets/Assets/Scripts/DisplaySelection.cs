@@ -46,14 +46,14 @@ public class DisplaySelection : MonoBehaviour
             {
                 mesh.enabled = true;
                 CurrentWaypoint = Waypoint1;
-                print("Waypoint1 Selected");
+                print("Sam Selected");
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 mesh.enabled = true;
                 CurrentWaypoint = Waypoint2;
-                print("Waypoint2 Selected");
+                print("Gollum Selected");
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {

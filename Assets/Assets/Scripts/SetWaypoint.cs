@@ -9,13 +9,7 @@ public class SetWaypoint : MonoBehaviour
     public GameObject CameraWaypoint;
     public GameObject Player;
     public GameObject CurrentWaypoint;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         SelectWaypoint();
@@ -44,7 +38,7 @@ public class SetWaypoint : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 CurrentWaypoint = Waypoint2;
-                print("Waypoint2 Selected");
+                print(Waypoint1.name+ " Selected");
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {

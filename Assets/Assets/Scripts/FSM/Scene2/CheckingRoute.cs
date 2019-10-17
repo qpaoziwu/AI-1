@@ -7,11 +7,15 @@ using UnityEngine.AI;
 public class CheckingRoute : StateBehaviour
 {
     public GameObject Waypoint;
+    public TextToUI textObject;
+
     NavMeshAgent navMeshAgent;
 
     void OnEnable()
     {
+
         navMeshAgent = GetComponent<NavMeshAgent>();
+
     }
 
     // Called when the state is disabled
@@ -24,9 +28,17 @@ public class CheckingRoute : StateBehaviour
     void Update()
     {
         PlaceWaypoint();
+        if (gameObject.tag == "Gollum")
+        {
+            textObject.GetComponent<TextToUI>().SetText("Yes?");
+
+        }
     }
+
     void PlaceWaypoint()
     {
+
+
         if (Input.GetMouseButtonDown(1))
         {
             if (Waypoint != null)

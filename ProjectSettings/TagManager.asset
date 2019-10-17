@@ -16,6 +16,9 @@ TagManager:
   - Butterfly
   - GollumWaypoint
   - SamWaypoint
+  - Food
+  - RawFood
+  - Artifact
   layers:
   - Default
   - TransparentFX
