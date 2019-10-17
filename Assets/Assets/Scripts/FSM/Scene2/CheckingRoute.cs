@@ -12,7 +12,6 @@ public class CheckingRoute : StateBehaviour
     void OnEnable()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-
     }
 
     // Called when the state is disabled
@@ -41,6 +40,24 @@ public class CheckingRoute : StateBehaviour
                     print(Waypoint.name + " position is now " + Waypoint.gameObject.transform.position);
                     SendEvent("Reached");
                 }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SendEvent("PlayerInput");
+        }
+        if (gameObject.tag == "Sam")
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SendEvent("PlayerInput");
+            }
+        }
+        if (gameObject.tag == "Gollum")
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SendEvent("PlayerInput");
             }
         }
     }

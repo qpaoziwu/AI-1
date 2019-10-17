@@ -5,20 +5,13 @@ using BehaviourMachine;
 
 public class CheckingDestination : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
-		Debug.Log("Started *State*");
-	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,6 +30,26 @@ public class CheckingDestination : StateBehaviour
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "SamWaypoint")
+        {
+            if (gameObject.tag == "Sam")
+            {
+                SendEvent("Null");
+
+            }
+        }
+        if (other.gameObject.tag == "GollumWaypoint")
+        {
+            if (gameObject.tag == "Gollum")
+            {
+                SendEvent("Null");
+
+            }
+        }
+    }
+
 }
 
 

@@ -22,9 +22,11 @@ public class TextToUI : MonoBehaviour
     public string s_cooking = "Right away Mr Frodo";
     public string s_waiting = "Food is ready Sir!";
 
+
     public TextMeshPro text;
     public string displayText;
 
+    public float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +38,22 @@ public class TextToUI : MonoBehaviour
     private void Update()
     {
         text.text = displayText;
+        ResetText();
     }
 
     public void SetText(string line)
     {
         displayText = line;
-        Invoke(displayText = silent, 3f);
-    }
+        timer = 1.5f;
 
+    }
+    private void ResetText()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            displayText = silent;
+
+        }
+    }
 }

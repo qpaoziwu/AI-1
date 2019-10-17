@@ -49,8 +49,8 @@ public class RotateTo : MonoBehaviour
                 timeCount += Time.deltaTime * rotationSpeed;
                 if (timeCount >= 1)
                 {
-                    opening = true;
-                    timeCount = 0;
+                    //opening = true;
+                    //timeCount = 0;
                 }
             }
         }
