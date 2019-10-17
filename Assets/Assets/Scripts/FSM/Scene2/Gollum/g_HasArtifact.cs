@@ -7,9 +7,16 @@ public class g_HasArtifact : StateBehaviour
 {
     public TextToUI textObject;
 
+    public GameObject Waypoint;
+
+    public GameObject Bargainpoint;
+
+
     // Called when the state is enabled
-    void OnEnable () {
-        textObject.GetComponent<TextToUI>().SetText(textObject.g_artifact);
+    void OnEnable ()
+    {
+
+        textObject.GetComponent<TextToUI>().SetText("The Artifact is mine!");
     }
 
     // Called when the state is disabled
@@ -18,9 +25,21 @@ public class g_HasArtifact : StateBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+
+        Waypoint.transform.position = Bargainpoint.transform.position;
+        Waypoint.transform.rotation = Bargainpoint.transform.rotation;
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Red")
+        {
+            SendEvent("Bargining");
+        }
+    }
+
 }
 
 

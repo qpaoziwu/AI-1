@@ -9,6 +9,8 @@ public class SetWaypoint : MonoBehaviour
     public GameObject CameraWaypoint;
     public GameObject Player;
     public GameObject CurrentWaypoint;
+    public GameObject Artifact;
+    public GameObject Door;
 
     void Update()
     {
@@ -18,10 +20,16 @@ public class SetWaypoint : MonoBehaviour
     }
     void SetCameraWaypoint()
     {
-        if (CurrentWaypoint != null)
+        if (Artifact.activeSelf == true)
+        {
+            CameraWaypoint.transform.position = Door.transform.position;
+
+        }
+        else if(CurrentWaypoint != null)
         {
             CameraWaypoint.transform.position = CurrentWaypoint.transform.position;
-        }else 
+        }
+        else
             CameraWaypoint.transform.position = Player.transform.position;
         
     }

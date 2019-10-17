@@ -8,6 +8,8 @@ public class ItemPickup : MonoBehaviour
     public bool food;
     public bool artifact;
 
+    public GameObject Artifact;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "RawFood")
@@ -25,6 +27,10 @@ public class ItemPickup : MonoBehaviour
             other.gameObject.SetActive(false);
             artifact = true;
         }
-
+        if (other.gameObject.tag == "ArtifactPoint")
+        {
+            other.gameObject.SetActive(false);
+            Artifact.SetActive(true);
+        }
     }
 }

@@ -13,7 +13,7 @@ public class TextToUI : MonoBehaviour
     public string g_catching = "Yummy!";
     public string g_artifact = "My precious!";
     public string g_bargaining = "Give Gollum Food!";
-    public string g_satisfied = "Here you go!";
+    public string g_satisfied = "Have your stupid thing back!";
 
     public string s_checking = "On my way sir";
     public string s_limping = "Mr Frodo, I'm hurt";

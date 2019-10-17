@@ -2,18 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
+using UnityEngine.AI;
+
 
 public class s_WaitingForPickup : StateBehaviour
 {
     public TextToUI textObject;
     public GameObject Food;
     public GameObject Pot;
+    NavMeshAgent navMeshAgent;
 
     public GameObject Player;
 
     // Called when the state is enabled
     void OnEnable () {
         textObject.GetComponent<TextToUI>().SetText(textObject.s_waiting);
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = 8f;
         Food.SetActive(true);
         gameObject.GetComponent<Sam_Health>().health = 5f;
     }

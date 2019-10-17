@@ -36,19 +36,15 @@ public class FollowPlayer : StateBehaviour
                 SendEvent("PlayerInput");
             }
         }
-        if (Player.GetComponent<ItemPickup>().artifact)
-        {
-            SendEvent("GetArtifact");
 
-        }
     }
 
     void CheckPlayerInput()
     {
 
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        { if (gameObject.tag == "Sam")
+        {
+            if (gameObject.tag == "Sam")
             {
                 SendEvent("PlayerInput");
             }
@@ -62,6 +58,26 @@ public class FollowPlayer : StateBehaviour
             }
         }
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (gameObject.tag == "Gollum")
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                if (collision.gameObject.GetComponent<ItemPickup>().artifact == true)
+                {
+                    if (gameObject.GetComponent<Gollum_Hunger>().cookedFood == false)
+                    {
+                        SendEvent("GotArtifact");
+                    }
+                }
+            }
+        }
     }
 
 }

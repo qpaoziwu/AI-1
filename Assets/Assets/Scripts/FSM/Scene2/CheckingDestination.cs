@@ -20,8 +20,6 @@ public class CheckingDestination : StateBehaviour
         {
             if (collision.gameObject.tag=="Pot")
             {
-
-                textObject.GetComponent<TextToUI>().SetText("Need to lay down for a bit");
                 SendEvent("CookingPot");
             }
         }

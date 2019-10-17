@@ -19,6 +19,7 @@ TagManager:
   - Food
   - RawFood
   - Artifact
+  - ArtifactPoint
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1015309831
     locked: 0
