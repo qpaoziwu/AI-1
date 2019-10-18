@@ -966,8 +966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 35.483, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 18.1}
+  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86555182
 MonoBehaviour:
@@ -6484,7 +6484,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15262
+  m_Name: pb_Mesh25114
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7028,7 +7028,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15062
+  m_Name: pb_Mesh24862
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16463,7 +16463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181884628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.11, y: 2.44, z: 76.29}
+  m_LocalPosition: {x: -2.17, y: 2.44, z: 71.08}
   m_LocalScale: {x: 2.9890428, y: 1.7695, z: 2.4537902}
   m_Children:
   - {fileID: 1288794506}
@@ -19787,7 +19787,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15134
+  m_Name: pb_Mesh24962
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26249,6 +26249,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypointer
       objectReference: {fileID: 0}
+    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
+        type: 3}
+      propertyPath: Waypoint1
+      value: 
+      objectReference: {fileID: 6362807974661462807}
+    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
+        type: 3}
+      propertyPath: Waypoint2
+      value: 
+      objectReference: {fileID: 6362807974072619664}
+    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
+        type: 3}
+      propertyPath: CameraWaypoint
+      value: 
+      objectReference: {fileID: 1332815216}
+    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 978806214149693163}
+    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
+        type: 3}
+      propertyPath: Artifact
+      value: 
+      objectReference: {fileID: 56936025}
+    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
+        type: 3}
+      propertyPath: Door
+      value: 
+      objectReference: {fileID: 898299581}
     - target: {fileID: 2962548983826376201, guid: 5312c3be82313ad478848216d3592c9e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26304,36 +26334,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
-        type: 3}
-      propertyPath: Waypoint1
-      value: 
-      objectReference: {fileID: 6362807974661462807}
-    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
-        type: 3}
-      propertyPath: Waypoint2
-      value: 
-      objectReference: {fileID: 6362807974072619664}
-    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
-        type: 3}
-      propertyPath: CameraWaypoint
-      value: 
-      objectReference: {fileID: 1332815216}
-    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 978806214149693163}
-    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
-        type: 3}
-      propertyPath: Artifact
-      value: 
-      objectReference: {fileID: 56936025}
-    - target: {fileID: 2962548983826376202, guid: 5312c3be82313ad478848216d3592c9e,
-        type: 3}
-      propertyPath: Door
-      value: 
-      objectReference: {fileID: 898299581}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5312c3be82313ad478848216d3592c9e, type: 3}
 --- !u!114 &3129105854896751122 stripped
@@ -26506,7 +26506,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974072619675}
     m_EventID: 429902443
-  m_CachedInstanceID: 15476
+  m_CachedInstanceID: 25384
   textObject: {fileID: 1476035188}
 --- !u!114 &6362807974072619666
 MonoBehaviour:
@@ -26529,7 +26529,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974072619665}
     m_EventID: 760310568
-  m_CachedInstanceID: 15478
+  m_CachedInstanceID: 25386
   vision: {fileID: 1884844446}
   Waypoint: {fileID: 1464724072}
   textObject: {fileID: 1476035188}
@@ -26554,7 +26554,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974072619666}
     m_EventID: 408226827
-  m_CachedInstanceID: 15480
+  m_CachedInstanceID: 25388
   vision: {fileID: 1884844446}
   Waypoint: {fileID: 1464724072}
   ButterflyWaypoint: {fileID: 725671038}
@@ -26580,7 +26580,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974072619674}
     m_EventID: 1822847826
-  m_CachedInstanceID: 15482
+  m_CachedInstanceID: 25390
   textObject: {fileID: 1476035188}
   timer: 0
 --- !u!114 &6362807974072619669
@@ -26604,7 +26604,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974072619668}
     m_EventID: 1137565996
-  m_CachedInstanceID: 15484
+  m_CachedInstanceID: 25392
   textObject: {fileID: 1476035188}
   Waypoint: {fileID: 1464724072}
   Bargainpoint: {fileID: 536025221}
@@ -26629,7 +26629,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974072619669}
     m_EventID: 1131913586
-  m_CachedInstanceID: 15486
+  m_CachedInstanceID: 25394
   textObject: {fileID: 1476035188}
   Waypoint: {fileID: 1464724072}
   Bargainpoint: {fileID: 536025221}
@@ -26654,7 +26654,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974072619675}
     m_EventID: 2044387302
-  m_CachedInstanceID: 15488
+  m_CachedInstanceID: 25396
   textObject: {fileID: 1476035188}
   timer: 0
   reached: 0
@@ -26681,7 +26681,7 @@ MonoBehaviour:
     m_EventID: 1708475129
   - m_Destination: {fileID: 6362807974072619670}
     m_EventID: 1311210287
-  m_CachedInstanceID: 15490
+  m_CachedInstanceID: 25398
   textObject: {fileID: 1476035188}
 --- !u!114 &6362807974072619673
 MonoBehaviour:
@@ -26708,7 +26708,7 @@ MonoBehaviour:
     m_EventID: 1620144956
   - m_Destination: {fileID: 6362807974072619674}
     m_EventID: 1445239334
-  m_CachedInstanceID: 15492
+  m_CachedInstanceID: 25400
   Waypoint: {fileID: 1464724072}
   textObject: {fileID: 1476035188}
 --- !u!114 &6362807974072619674
@@ -26734,7 +26734,7 @@ MonoBehaviour:
     m_EventID: 1445239334
   - m_Destination: {fileID: 6362807974072619670}
     m_EventID: 1311210287
-  m_CachedInstanceID: 15494
+  m_CachedInstanceID: 25402
   Waypoint: {fileID: 1464724072}
   Player: {fileID: 978806214149693167}
   Waypointer: {fileID: 1546161094}
@@ -26761,7 +26761,7 @@ MonoBehaviour:
     m_EventID: 1737371690
   - m_Destination: {fileID: 6362807974072619667}
     m_EventID: 1205192753
-  m_CachedInstanceID: 15496
+  m_CachedInstanceID: 25404
   textObject: {fileID: 1476035188}
 --- !u!195 &6362807974072619676
 NavMeshAgent:
@@ -26827,7 +26827,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462817}
     m_EventID: 460695596
-  m_CachedInstanceID: 15504
+  m_CachedInstanceID: 25412
   textObject: {fileID: 86555183}
 --- !u!114 &6362807974661462809
 MonoBehaviour:
@@ -26850,7 +26850,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462812}
     m_EventID: 1908120309
-  m_CachedInstanceID: 15506
+  m_CachedInstanceID: 25414
   Pot: {fileID: 1986453883}
   RawFood: {fileID: 1628685946}
   textObject: {fileID: 86555183}
@@ -26875,7 +26875,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462814}
     m_EventID: 344553185
-  m_CachedInstanceID: 15508
+  m_CachedInstanceID: 25416
   textObject: {fileID: 86555183}
   Food: {fileID: 1181884628}
   Pot: {fileID: 1986453883}
@@ -26901,7 +26901,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462817}
     m_EventID: 37660728
-  m_CachedInstanceID: 15510
+  m_CachedInstanceID: 25418
   textObject: {fileID: 86555183}
 --- !u!114 &6362807974661462812
 MonoBehaviour:
@@ -26924,7 +26924,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462810}
     m_EventID: 855002142
-  m_CachedInstanceID: 15512
+  m_CachedInstanceID: 25420
   textObject: {fileID: 86555183}
   Pot: {fileID: 1986453883}
   timer: 0
@@ -26951,7 +26951,7 @@ MonoBehaviour:
     m_EventID: 1478838814
   - m_Destination: {fileID: 6362807974661462808}
     m_EventID: 1461153539
-  m_CachedInstanceID: 15514
+  m_CachedInstanceID: 25422
   Sam_Health: {fileID: 6362807974661462823}
 --- !u!114 &6362807974661462814
 MonoBehaviour:
@@ -26974,7 +26974,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462816}
     m_EventID: 267991251
-  m_CachedInstanceID: 15516
+  m_CachedInstanceID: 25424
   textObject: {fileID: 86555183}
   timer: 0
   reached: 0
@@ -26999,7 +26999,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462813}
     m_EventID: 1588911986
-  m_CachedInstanceID: 15518
+  m_CachedInstanceID: 25426
   Waypoint: {fileID: 1487361391}
   Player: {fileID: 978806214149693167}
   Waypointer: {fileID: 1546161094}
@@ -27024,7 +27024,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 6362807974661462815}
     m_EventID: 1957925074
-  m_CachedInstanceID: 15520
+  m_CachedInstanceID: 25428
   textObject: {fileID: 1476035188}
 --- !u!114 &6362807974661462817
 MonoBehaviour:
@@ -27051,7 +27051,7 @@ MonoBehaviour:
     m_EventID: 1810424289
   - m_Destination: {fileID: 6362807974661462815}
     m_EventID: 1588911986
-  m_CachedInstanceID: 15522
+  m_CachedInstanceID: 25430
   Waypoint: {fileID: 1487361391}
   textObject: {fileID: 86555183}
 --- !u!114 &6362807974661462818
@@ -27077,7 +27077,7 @@ MonoBehaviour:
     m_EventID: 1908444006
   - m_Destination: {fileID: 6362807974661462814}
     m_EventID: 1711666125
-  m_CachedInstanceID: 15524
+  m_CachedInstanceID: 25432
   textObject: {fileID: 1476035188}
 --- !u!195 &6362807974661462819
 NavMeshAgent:
@@ -27497,6 +27497,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraRig
       objectReference: {fileID: 0}
+    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
+        type: 3}
+      propertyPath: m_RenderingPath
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
+        type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
+        type: 3}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8745652880415769946, guid: f119d95be20211c40ba7db045fcebb1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27561,36 +27591,6 @@ PrefabInstance:
         type: 3}
       propertyPath: moving
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
-        type: 3}
-      propertyPath: m_RenderingPath
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
-        type: 3}
-      propertyPath: m_HDR
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
-        type: 3}
-      propertyPath: m_AllowMSAA
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
-        type: 3}
-      propertyPath: m_AllowDynamicResolution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
-        type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745652879731922159, guid: f119d95be20211c40ba7db045fcebb1b,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f119d95be20211c40ba7db045fcebb1b, type: 3}

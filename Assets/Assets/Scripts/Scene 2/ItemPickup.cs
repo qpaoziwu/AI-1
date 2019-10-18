@@ -29,8 +29,11 @@ public class ItemPickup : MonoBehaviour
         }
         if (other.gameObject.tag == "ArtifactPoint")
         {
-            other.gameObject.SetActive(false);
-            Artifact.SetActive(true);
+            if (artifact)
+            {
+                other.gameObject.SetActive(false);
+                Artifact.SetActive(true);
+            }
         }
     }
 }
