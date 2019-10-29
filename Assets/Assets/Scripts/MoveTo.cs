@@ -11,7 +11,7 @@ public class MoveTo : MonoBehaviour
     [Range(1, 50)]
     public float speed;
     [Range (1, 100)]
-    public float cameraChaseSpeed;
+    public float chaseSpeed;
     [Range(1, 5)]
     public float positionThreshold;
 
@@ -29,8 +29,9 @@ public class MoveTo : MonoBehaviour
     private void Move(Transform destination)
     { 
         dir = Vector3.Normalize(destination.position - transform.position);
-        Vector3 lerpDir = Vector3.Lerp(transform.position, dir, cameraChaseSpeed);
+        Vector3 lerpDir = Vector3.Lerp(transform.position, dir, chaseSpeed);
         distanceDir = new Vector3(lerpDir.x, 0f, lerpDir.z);
+
         if (Vector3.Distance(transform.position, destination.position) >= positionThreshold)
         {
             if (moving)
