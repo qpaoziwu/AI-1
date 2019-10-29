@@ -18,6 +18,7 @@ public class SetWaypoint : MonoBehaviour
         //PlaceWaypoint();
         SetCameraWaypoint();
     }
+
     void SetCameraWaypoint()
     {
         if (Artifact.activeSelf == true)
